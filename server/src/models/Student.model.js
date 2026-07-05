@@ -57,7 +57,6 @@ const studentSchema = new mongoose.Schema(
 );
 
 // ─── Indexes ────────────────────────────────────────────────────────────────
-studentSchema.index({ admissionNumber: 1 }, { unique: true });
 studentSchema.index({ class: 1, section: 1 });
 studentSchema.index({ academicSession: 1 });
 studentSchema.index({ isActive: 1 });

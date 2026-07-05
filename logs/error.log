@@ -1,0 +1,5 @@
+2026-07-05 19:31:19 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/register-student - POST - ::1
+2026-07-05 20:33:19 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:33:21 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:33:26 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:47:00 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::ffff:127.0.0.1

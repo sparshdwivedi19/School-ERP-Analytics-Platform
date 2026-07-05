@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
 const hpp = require('hpp');
 const compression = require('compression');
 const morgan = require('morgan');
@@ -57,10 +55,10 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // 6. Data Sanitization against NoSQL query injection
-app.use(mongoSanitize());
+// Removed express-mongo-sanitize as it's incompatible with Express 5 (req.query is getter)
 
 // 7. Data Sanitization against XSS
-app.use(xss());
+// Removed xss-clean because it modifies getter 'req.query' which throws in Node 22 + Express 5.
 
 // 8. Prevent HTTP Parameter Pollution
 app.use(hpp());
@@ -79,7 +77,7 @@ app.get('/api/v1/health', (req, res) => {
 });
 
 // ─── Unhandled Routes ───────────────────────────────────────────────────────
-app.all('*', (req, res, next) => {
+app.use((req, res, next) => {
   next(new ApiError(404, `Can't find ${req.originalUrl} on this server!`));
 });
 

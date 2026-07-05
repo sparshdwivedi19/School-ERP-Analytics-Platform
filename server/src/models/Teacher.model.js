@@ -40,7 +40,6 @@ const teacherSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-teacherSchema.index({ employeeId: 1 }, { unique: true });
 teacherSchema.index({ isActive: 1 });
 teacherSchema.index({ name: 'text', email: 'text', mobile: 'text' });
 

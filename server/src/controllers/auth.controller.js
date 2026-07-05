@@ -6,7 +6,7 @@ const ApiError = require('../utils/ApiError');
 const ApiResponse = require('../utils/ApiResponse');
 const asyncHandler = require('../utils/asyncHandler');
 const { TOKEN_EXPIRY } = require('../config/constants');
-// const emailService = require('../services/email.service'); // To be implemented
+const logger = require('../utils/logger');
 
 const signAccessToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_ACCESS_SECRET, {
@@ -43,24 +43,31 @@ const sendTokenResponse = (user, statusCode, res) => {
 };
 
 exports.login = asyncHandler(async (req, res, next) => {
-  const { email, password } = req.body;
+  let { email, password } = req.body;
+  logger.info(`[LOGIN ATTEMPT] Email provided: '${email}', Password provided: '${password}'`);
+  
+  if (email) email = email.toLowerCase().trim();
 
   const user = await User.findOne({ email }).select('+password');
 
   if (!user) {
+    logger.info(`[LOGIN FAILED] No user found for email: '${email}'`);
     return next(new ApiError(401, 'Invalid email or password'));
   }
 
   // Check if locked out
   if (user.isLocked) {
+    logger.info(`[LOGIN FAILED] User '${email}' is locked out`);
     const remainingTime = Math.ceil((user.lockUntil - Date.now()) / 1000 / 60);
     return next(new ApiError(429, `Account locked due to multiple failed attempts. Try again in ${remainingTime} minutes.`));
   }
 
   // Verify password
   const isMatch = await user.comparePassword(password);
+  logger.info(`[LOGIN PASSWORD CHECK] isMatch for '${email}': ${isMatch}`);
   
   if (!isMatch) {
+    logger.info(`[LOGIN FAILED] Password mismatch for '${email}'`);
     await user.incrementLoginAttempts();
     return next(new ApiError(401, 'Invalid email or password'));
   }

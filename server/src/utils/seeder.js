@@ -72,6 +72,21 @@ const seedData = async () => {
       logger.info('⚠️ Teacher user already exists');
     }
 
+    // 5. Seed Student User
+    const studentExists = await User.findOne({ email: 'student@suncity.com' });
+    if (!studentExists) {
+      await User.create({
+        name: 'Demo Student',
+        email: 'student@suncity.com',
+        password: 'Password123!',
+        role: 'student',
+        mustChangePassword: false,
+      });
+      logger.info('✅ Default Student User seeded (student@suncity.com / Password123!)');
+    } else {
+      logger.info('⚠️ Student user already exists');
+    }
+
     logger.info('🌱 Seeding Complete!');
     process.exit();
   } catch (error) {

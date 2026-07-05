@@ -1,0 +1,31 @@
+2026-07-05 19:11:34 [info]: MongoDB Connected for Seeding
+2026-07-05 19:11:35 [info]: ⚠️ School Settings already exist
+2026-07-05 19:11:35 [info]: ⚠️ Admin user already exists
+2026-07-05 19:11:35 [info]: ⚠️ Principal user already exists
+2026-07-05 19:11:35 [info]: ⚠️ Teacher user already exists
+2026-07-05 19:11:35 [info]: ✅ Default Student User seeded (student@suncity.com / Password123!)
+2026-07-05 19:30:39 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 19:30:39 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 19:31:19 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/register-student - POST - ::1
+2026-07-05 20:31:07 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:31:07 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:32:24 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:32:24 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:33:19 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:33:21 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:33:26 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::1
+2026-07-05 20:45:01 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:45:01 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:46:17 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:46:17 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:46:48 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:46:49 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:47:00 [error]: [ERROR] 500 - Cannot set property query of #<IncomingMessage> which has only a getter - /api/v1/auth/login - POST - ::ffff:127.0.0.1
+2026-07-05 20:47:19 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:47:19 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:49:33 [info]: ✅ MongoDB Connected: localhost
+2026-07-05 20:49:33 [info]: 🚀 Server running in development mode on port 5000
+2026-07-05 20:50:09 [info]: [LOGIN ATTEMPT] Email provided: 'teacher@suncity.com', Password provided: 'Password123!'
+2026-07-05 20:50:10 [info]: [LOGIN PASSWORD CHECK] isMatch for 'teacher@suncity.com': true
+2026-07-05 20:50:42 [info]: [LOGIN ATTEMPT] Email provided: 'teacher@suncity.com', Password provided: 'Password123!'
+2026-07-05 20:50:43 [info]: [LOGIN PASSWORD CHECK] isMatch for 'teacher@suncity.com': true

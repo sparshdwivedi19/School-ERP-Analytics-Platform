@@ -62,9 +62,19 @@ const PublicRoute = ({ children }) => {
   const { user, isLoading } = useAuth();
   
   if (isLoading) return <div className="flex h-screen items-center justify-center">Loading...</div>;
-  if (user) return <Navigate to="/dashboard" replace />;
+  if (user) {
+    return user.role === 'student' 
+      ? <Navigate to="/student-dashboard" replace /> 
+      : <Navigate to="/dashboard" replace />;
+  }
   
   return children;
+};
+
+const RootRedirect = () => {
+  const { user } = useAuth();
+  if (user?.role === 'student') return <Navigate to="/student-dashboard" replace />;
+  return <Navigate to="/dashboard" replace />;
 };
 
 function App() {
@@ -92,7 +102,7 @@ function App() {
             <MainLayout />
           </ProtectedRoute>
         }>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<RootRedirect />} />
           <Route path="/dashboard" element={<Dashboard />} />
           
           {/* Students Module */}
